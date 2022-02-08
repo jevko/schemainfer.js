@@ -1,33 +1,5 @@
 // infers schema from JSON
-export const jsonToSchema = (json) => {
-  if (typeof json === 'string') {
-    return {type: 'string'}
-  }
-  if (typeof json === 'number') {
-    return {type: 'float64'}
-  }
-  if (typeof json === 'boolean') {
-    return {type: 'boolean'}
-  }
-  if (json === null) {
-    return {type: 'null'}
-  }
-  if (Array.isArray(json)) {
-    // todo: if all items are the same type, make it an array
-    const itemSchemas = []
-    for (const val of json) {
-      itemSchemas.push(jsonToSchema(val))
-    }
-    return {type: 'tuple', itemSchemas}
-  }
-  const entries = Object.entries(json)
-
-  let props = Object.create(null)
-  for (const [key, val] of entries) {
-    props[key] = jsonToSchema(val)
-  }
-  return {type: 'object', props}
-}
+export {jsonToSchema} from 'jsonjevko.js'
 
 // infers schema from interjevko
 export const interJevkoToSchema = (jevko) => {
