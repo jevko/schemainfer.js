@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "schemainfer.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "mod.js",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Darius J Chuck",
   "license": "MIT",
   "devDependencies": {
-    "jevkoutils.js": "github:jevko/jevkoutils.js#semver:0.1.2",
+    "jevkoutils.js": "github:jevko/jevkoutils.js#semver:0.1.6",
     "parsejevko.js": "github:jevko/parsejevko.js#semver:0.1.3"
   },
   "dependencies": {

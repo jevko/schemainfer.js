@@ -26,9 +26,9 @@ const res = jsonToSchema({
   "spouse": null 
 })
 
-console.log(res)
+console.log(JSON.stringify(res, null, 2))
 
-console.log(interJevkoToSchema(parseJevko(`
+console.log(JSON.stringify(interJevkoToSchema(parseJevko(`
 first name [John]
 last name [Smith]
 is alive [true]
@@ -51,4 +51,4 @@ phone numbers [
 ]
 children []
 spouse []
-`)))
+`)), null, 2))
