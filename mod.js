@@ -13,7 +13,8 @@ export const interJevkoToSchema = (jevko) => {
     if (trimmed === 'null') return {type: 'null'}
 
     if (trimmed === 'NaN') return {type: 'float64'}
-    const num = Number.parseFloat(trimmed)
+    if (trimmed === '') return {type: 'string'} // todo: {type: 'empty'}
+    const num = Number(trimmed)
     if (Number.isNaN(num)) return {type: 'string'}
     return {type: 'float64'}
   }
