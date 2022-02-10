@@ -5,9 +5,8 @@ export {jsonToSchema} from 'https://cdn.jsdelivr.net/gh/jevko/jsonjevko.js@v0.1.
 export const interJevkoToSchema = (jevko) => {
   const {subjevkos, suffix} = jevko
 
+  const trimmed = suffix.trim()
   if (subjevkos.length === 0) {
-    const trimmed = suffix.trim()
-
     // todo: perhaps only untrimmed are ok, otherwise it's a string
     if (['true', 'false'].includes(trimmed)) return {type: 'boolean'}
     if (trimmed === 'null') return {type: 'null'}
@@ -18,6 +17,8 @@ export const interJevkoToSchema = (jevko) => {
     if (Number.isNaN(num)) return {type: 'string'}
     return {type: 'float64'}
   }
+  
+  if (trimmed !== '') throw Error('suffix must be blank')
 
   const {prefix} = subjevkos[0]
   if (prefix.trim() === '') {

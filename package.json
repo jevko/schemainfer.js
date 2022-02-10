@@ -1,23 +1,9 @@
 {
   "type": "module",
   "name": "schemainfer.js",
-  "version": "0.1.3",
-  "main": "mod.js",
+  "main": "bundle.js",
+  "files": ["bundle.js"],
   "private": true,
-  "scripts": {
-    "test": "node test.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jevko/schemainfer.js.git"
-  },
   "author": "Darius J Chuck",
-  "license": "MIT",
-  "devDependencies": {
-    "jevkoutils.js": "github:jevko/jevkoutils.js#semver:0.1.6",
-    "parsejevko.js": "github:jevko/parsejevko.js#semver:0.1.3"
-  },
-  "dependencies": {
-    "jsonjevko.js": "github:jevko/jsonjevko.js#semver:0.1.0"
-  }
+  "license": "MIT"
 }
