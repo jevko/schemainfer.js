@@ -1,3 +1,9 @@
+# rebuild bundle on push
+
+a github action?
+
+# array inference
+
 Currently arrays are inferred to be tuples. Implement optional array inference by checking that all elements have the same schema. Sketch:
 
 ```js
