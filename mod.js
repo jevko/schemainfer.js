@@ -8,10 +8,10 @@ export const interJevkoToSchema = (jevko) => {
   if (subjevkos.length === 0) {
     // todo: perhaps only untrimmed are ok, otherwise it's a string
     if (['true', 'false'].includes(trimmed)) return {type: 'boolean'}
-    if (trimmed === 'null') return {type: 'null'}
+    // note: converting empty suffix to null for now; later perhaps might be sensible to introduce the 'empty' type instead
+    if (trimmed === 'null' || suffix === '') return {type: 'null'}
 
     if (trimmed === 'NaN') return {type: 'float64'}
-    if (trimmed === '') return {type: 'string'} // todo: {type: 'empty'}
     const num = Number(trimmed)
     if (Number.isNaN(num)) return {type: 'string'}
     return {type: 'float64'}
