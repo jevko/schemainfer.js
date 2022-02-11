@@ -1,5 +1,4 @@
-// infers schema from JSON
-export {jsonToSchema} from 'https://cdn.jsdelivr.net/gh/jevko/jsonjevko.js@v0.1.0/mod.js'
+export {jsonToSchema} from './deps.js'
 
 // infers schema from interjevko
 export const interJevkoToSchema = (jevko) => {
@@ -34,8 +33,9 @@ export const interJevkoToSchema = (jevko) => {
   const props = Object.create(null)
   for (const {prefix, jevko} of subjevkos) {
     // todo: handle verbatim keys
-    // todo: handle duplicate and empty keys
+    // todo: handle empty keys
     const key = prefix.trim()
+    if (key in props) throw Error(`duplicate key (${key})`)
     props[key] = interJevkoToSchema(jevko)
   }
   return {type: 'object', props}
